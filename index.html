@@ -54,6 +54,16 @@
                 <p>Phone: (123) 456-7890</p>
             </div>
         </section>
+
+        <!-- Hidden Secret Section -->
+        <section id="secret-section" class="hidden">
+            <div class="container">
+                <h2>Secret Stuff</h2>
+                <p>This is a hidden section for secret content. Congratulations on finding it!</p>
+            </div>
+        </section>
+
+        <button onclick="revealSecret()">Reveal the Secret</button>
     </main>
 
     <footer>
@@ -61,5 +71,26 @@
             <p>&copy; 2024 TickleMonstr. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function revealSecret() {
+            document.getElementById('secret-section').classList.toggle('hidden');
+        }
+
+        // Track key presses to detect "a", "b", "c"
+        let keysPressed = {};
+
+        document.addEventListener('keydown', function(event) {
+            keysPressed[event.key] = true;
+
+            if (keysPressed['a'] && keysPressed['b'] && keysPressed['c']) {
+                window.location.href = 'secret.html'; // Redirect to secret.html
+            }
+        });
+
+        document.addEventListener('keyup', function(event) {
+            keysPressed[event.key] = false;
+        });
+    </script>
 </body>
 </html>
